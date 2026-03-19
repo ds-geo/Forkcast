@@ -28,4 +28,5 @@ package-lock.json
 
 .env
 
-data/
+# Large raw data file — too big for git
+data/restaurant-menus.csv
