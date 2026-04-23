@@ -8,3 +8,4 @@ pandas==2.2.2
 numpy==1.26.4
 sentence-transformers==3.0.1
 pyspellchecker==0.8.1
+git+https://github.com/MrPeterss/infosci-spark-client.git

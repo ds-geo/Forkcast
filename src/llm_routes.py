@@ -15,7 +15,6 @@ import json
 import os
 import logging
 from flask import request, jsonify, Response, stream_with_context
-from infosci_spark_client import LLMClient
 
 logger = logging.getLogger(__name__)
 
@@ -109,6 +108,11 @@ def register_rag_route(app):
             {'role': 'system', 'content': SYSTEM_PROMPT},
             {'role': 'user',   'content': context},
         ]
+
+        try:
+            from infosci_spark_client import LLMClient
+        except ImportError:
+            return jsonify({'error': 'infosci_spark_client not installed'}), 500
 
         client = LLMClient(api_key=api_key)
 
