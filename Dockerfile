@@ -45,4 +45,4 @@ COPY src/ $CONTAINER_HOME/src/
 COPY --from=index-builder /app/data/forkcast_index.pkl $CONTAINER_HOME/data/forkcast_index.pkl
 COPY --from=frontend-build /app/frontend/dist $CONTAINER_HOME/frontend/dist
 
-CMD ["python", "-m", "gunicorn", "--chdir", "src", "app:app", "--bind", "0.0.0.0:5000", "--log-level", "debug"]
+CMD ["python", "-m", "gunicorn", "--chdir", "src", "app:app", "--bind", "0.0.0.0:5000", "--timeout", "120", "--log-level", "debug"]
